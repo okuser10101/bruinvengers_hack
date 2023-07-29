@@ -3,24 +3,24 @@ Coding files from Hack team #4 project  'BruinVengers' gauntlet
 
 # BruinVengers
 
-#BruinVengers_hackGauntlet.ino
+# BruinVengers_hackGauntlet.ino
 
-[description]
+Executable file where local computer communicates with ESP.
 
-#BruinVengers_gui.html
+# BruinVengers_gui.html
 
-[description]
-#communication.js (provided)
+HTML file that is the structure of our website. 
 
-[description]
+# communication.js (provided)
 
+Provided code that provides communication between ESP and website in real time.
 
-#Notes:
+# Notes:
 
   -file format: '<TeamName>_<ReasonableNameOfFile>'
   -[...]
 
-#Issued Encountered:
+# Issued Encountered:
 
   -[...]
   -[...]
