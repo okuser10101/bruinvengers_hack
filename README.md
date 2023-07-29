@@ -1,10 +1,10 @@
 # BruinVengers
 
-# BruinVengers_hackGauntlet.ino
+## BruinVengers_hackGauntlet.ino
 
 Executable file where local computer communicates with ESP.
 
-# BruinVengers_gui.html
+## BruinVengers_gui.html
 
 HTML file that is the structure of our website. 
 
