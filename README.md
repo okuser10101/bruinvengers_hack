@@ -12,9 +12,15 @@ HTML file that is the structure of our website.
 
 Provided code that provides communication between ESP32 and website in real time.
 
+### HackPublisher.h (provided)
+
+Header file to provide functionality for ESP32 code to connect to website.
+
 ### Notes:
 
-  -[...]
+  -Install
+    -ArduinoJSON by Benoit Blanchon
+    -PubSubClient by Nick O'Leary
 
 ### Issued Encountered:
 
