@@ -3,24 +3,24 @@ Coding files from Hack team #4 project  'BruinVengers' gauntlet
 
 # BruinVengers
 
-BruinVengers_hackGauntlet.ino
+#BruinVengers_hackGauntlet.ino
 
 [description]
 
-BruinVengers_gui.html
+#BruinVengers_gui.html
 
 [description]
-communication.js (provided)
+#communication.js (provided)
 
 [description]
 
 
-Notes:
+#Notes:
 
   -file format: '<TeamName>_<ReasonableNameOfFile>'
   -[...]
 
-Issued Encountered:
+#Issued Encountered:
 
   -[...]
   -[...]
