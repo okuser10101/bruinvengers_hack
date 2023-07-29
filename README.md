@@ -14,7 +14,6 @@ Provided code that provides communication between ESP32 and website in real time
 
 ### Notes:
 
-  -file format: '<TeamName>_<ReasonableNameOfFile>'
   -[...]
 
 ### Issued Encountered:
