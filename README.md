@@ -8,16 +8,16 @@ Executable file where local computer communicates with ESP.
 
 HTML file that is the structure of our website. 
 
-# communication.js (provided)
+### communication.js (provided)
 
 Provided code that provides communication between ESP and website in real time.
 
-# Notes:
+### Notes:
 
   -file format: '<TeamName>_<ReasonableNameOfFile>'
   -[...]
 
-# Issued Encountered:
+### Issued Encountered:
 
   -[...]
   -[...]
