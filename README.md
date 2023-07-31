@@ -8,7 +8,7 @@ Executable file where local computer communicates with ESP32.
 
 HTML file that is the structure of our website. 
 
-### BruinVengers_gui2.html
+### BruinVengers_gui2.css
 
 CSS file for making our website pretty. 
 
