@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<!--BruinVengers_gui.html-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BruinVengers</title>
+
+    <link rel="stylesheet" type="text/css" href="BruinVengers_gui2.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Handjet">
+</head>
+<body>
+ 
+    <p>
+    <img src="bruinLogo_TEST.png" width="200" 
+     height="200" alt="teamLogo">
+    <h1 class="glow"> <center>The BruinVengers </center></h1>
+   <center> <marquee bgcolor="#ffbcac" width="50%">Heroes At Work...</marquee> </center>
+
+    </p>
+
+    <div class="arduino__communication">
+         <hr> <h1><center>Data:</center></h1>
+        
+<body>
+
+
+
+ <table style="width:100%">
+  <tr>
+    <td class="distance_sensor">Distance:</td>
+    <td class="gas_sensor">Gas Level:</td>
+    <td class="temperature">Temperature:</td>
+  </tr>
+  <tr>   
+  <td id="distanceColor">  <!-- added portion -->
+  <p>cm: </p>
+    <p id="distance"> </p>
+    <p id="enemy_status"></p>
+  </td>
+  <td id="gasColor">  <!-- gas. may need change id 'from enemy_status to 'gas'-->
+    <p id="air_quality"> </p>
+    <p id="air_status"></p>
+  </td> 
+  <td id="tempColor">
+    <p>HUMIDITY: (%)</p>
+    <p id="humidity"></p>
+    <p>TEMPERATURE: (C)</p>
+    <p id="temperature"></p>
+    <p id="fire_status"></p>
+  </td>
+  </tr>
+</table>  
+
+
+
+</body>
+</html>
+
+        <!--adding code-->
+        <hr> <h2> Design Specs & Review </h2>
+
+        <h3 class ="blue"> Specs: </h3>
+        <div> Forearm: 19 cm x 15 cm x 13.5 cm <br>
+            Fingers: 11cm x 13cm x .75cm<br>
+            Hand: 8cm x 9.5cm x 1.25cm<br><br>
+
+            Length: ~37cm  <br>
+            Width: 15cm    <br>
+            Height: 13.5cm  <br>
+ </div>
+        <h3 class="blue"> Why These Sensors? </h3>
+        <div> -Ultrasonic Distance Sensors <br>
+	-Hazardous Gas Detection Module<br>
+  -Digital Temperature & Humidity Sensor <br><br>
+
+We chose these sensors because we think they are the most important to maximize chances of saving our fellow Bruin Engineer. <br><br>
+
+The ‘Ultrasonic Distance Sensors’ are so we can navigate the dark and tell if the Bruin Engineers are near. Not having them would be a great disadvantage because we might pass over the victims and they may be too weak to say anything. <br><br>
+The ‘Hazardous Gas Detection Module’ is needed so we can both protect ourselves and the Bruin Engineers. In order to be proper heroes, we need to be effective. This sensor allows us to navigate the course smartly and not go into hazardous areas that could kill us. After saving our friends, It also helps us navigate and leave safely.<br> <br>
+
+The 'Digital Temperature & Humidity Sensor' is needed so we can protect ourselves from entering rooms full of fire.
+</div>
+
+    <h3 class="blue"> Code Design </h3>
+    <div> We designed our code primarily based on functionality over fancy CSS design. We allocated time mostly to making sure our code was communicating with the gauntlet over WiFi and that our website was updating the data accordingly.<br>
+
+Many of these functions were provided.<br><br>
+
+When we had time at the end, we then shifted to making our website look pretty with HTML & CSS. We used many ‘class’ and ‘id’ types to organize and make the different website colors come together cohesively.<br><br>
+
+For the arduino code, we focused on functional programming. The code reads from the sensors and when a condition is met like an enemy is found or hazardous air conditions, then it runs a function that updates to our website, updates leds, and sounds an alarm. Each sensor has a corresponding function. 
+ <br><br>
+</div>
+
+    <h3 class="blue"> Issues Faced & Overcoming Them </h3>
+
+    <div> <u>Coding: </u> <br><br>
+    Issue 1: We faced initial issues with connecting our ESP32 to the WiFi. We could not connect to the ‘UCLA_WiFi’ and ‘UCLA_WEB’ networks. (This was later figured out because we were in another building where those networks don’t seem to work). So we decided to connect to a personal hotspot and it solved the issue.<br><br>
+    Issue 2: Our other issue was where the local IP address wouldn’t display to the Serial Monitor. It was displaying ‘?’ instead. This was fixed by setting ‘baud’ to the same value as ‘Serial.begin(int)’  <br><br>
+    Issue 3: We tried to integrate arduino code with the website code but it failed. We were stuck here for 3+ hours. Resolved by creating a html file separate from the arduino code. Also followed github instructions and header file created by mentor Austin. <br><br>
+    Issue 4: The next day, our website code wasn't updating data. This was because the WiFi we were on was faulty. Issue was solved by changing to the designated 'ASUS-F8' WiFi.
+    <br><br>
+</div>
+
+
+<div><u> Circuit: </u>  <br><br>
+Distance sensor: only outputting 0s to the serial monitor. Problem was esp board could only provided 3V but the sensor needs 5. Solved this by connecting it to the VBUS pin.<br><br>
+Esp32 only has one default 12C bus. The two pins, SDA and SCL, were used for the oled screen. We ran into an issue when we wanted to add the temperature and humidity sensor that also needs 12C communication. We resolved this using oneWire protocol that the sensor was compatible with.<br><br>
+We encountered a problem during sensor testing. Initially we had a function that runs for the distance sensor alerting when an enemy or object is encountered. We thought about the rooms being used in the field of play, which would cause that function to always run and stop the program from reading other sensors. We scraped this function and left the distance sensor running at all times. <br><br>
+
+A similar problem was encountered with the fire sensor. It takes a while to regulate back to room conditions after being in a "fire room". When it detected the conditions of being in a fire, it would run a function similar to the distance sensor function as described above and disrupt our whole circuit. We decided to scrap this function and just continuously read it. <br><br>
+
+</div>
+
+<div><u>CAD: </u><br><br>
+Design Goal: Our primary focus was designing a gauntlet that could be functional, meaning it would fit our E-hero as well as be a vessel for the necessary electrical components. <br><br>
+In addition to this, we wanted a simplistic design that would be both sturdy and a little flexible (accomplished by adding joints). These are the designs that we took inspiration from: <br><br>
+
+<p>
+<img src="https://d2t1xqejof9utc.cloudfront.net/screenshots/pics/82bba96e6068588c5dae10db0f776997/large.JPG" alt="gauntlet 1" width="300" height="300">
+ </div>
+
+ <img src="https://i.etsystatic.com/11686907/r/il/ed3bf4/4843192556/il_1588xN.4843192556_b27l.jpg" alt="gauntlet 2" width="300" height="300">
+ </div>
+</p>
+
+<p> To accomplish this, we decided to create a separate part for the forearm and fingers that would be connected by a middle part on the hand. The forearm was designed to slide onto the user's arm easily, and features a large groove on the top end to fit the breadboards on. Additionally, a slot was added to the side of the part to safely store the battery pack. 
+  <br><br>We were a little ambitious with the fingers and wanted to give a shot at designing functional knuckle joints to give more flexibility. The user’s fingertips would ideally hook onto the ends and it would function similar to an exoskeleton. Lastly, the hand piece was created to connect the two parts and provide full coverage for the gauntlet. 
+  <br>These are our first iterations: <br></p>
+<!-- 3 images here -->
+
+<img src="img1.png" alt="CAD" width="500" height="300">
+<!-- <img src="img2.png" alt="CAD" width="300" height="300"> -->
+
+<p>Issue 1: One of the first issues we ran into was the finger part being sized incorrectly. The width for each finger was taken from the skinniest part instead of the widest part, and the length of each finger was a bit too much. Second iteration of the fingers:</p>
+<img src="img2.png" alt="CAD" width="300" height="300">
+
+<p>The total length was reduced by about 8cm and the width of each digit was reduced by about 1.2cm in order to make them more akin to actual fingers. <br><br>
+
+Issue 2: The next issue we ran into was a mismatch of sizing for the connecting joints on the hand piece and their respective counterparts on the forearm and fingers. Originally we approached this task by simply using measurements, but we also ended up using an assembly to overlay the joints and see how they would actually fit. From there, we adjusted the male parts on the hand to create a better fit for the forearm and fingers. 
+</p>
+<!-- ADD: MORE SPACES -->
+<p> First iteration:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Second Iteration: </p>
+<img src="img3.png" alt="CAD" width="700" height="300">
+<img src="img4.png" alt="CAD" width="500" height="300">
+
+<p>Issue 3: After printing all parts, the fingers and hand were a good fit, but the forearm and hand were a little loose. To fix this, we opted for creating tight fitting plugs on either end of the circular joint to keep the hand in place. First iteration:</p>
+<img src="img5.png" alt="CAD" width="300" height="300">
+
+<p>Issue 4: Just overall, one of the main issues we had was our inexperience with tolerances when it came to designing parts online and seeing how they would fit when printed. 
+  <br>Trying to reasonably fit components to an actual arm and hand posed an additional challenge because we wanted it to fit relatively well and have some mobility, but we also needed it to be functional and properly house our components.</p>
+  <img src="img6.png" alt="CAD" width="500" height="300">
+
+<p>Issue 5: We made good progress and opted for improving our gauntlet. One improvement was to mount the ultrasonic distance sensor on the hand such that it was front-facing. To do this, we decided to add a mount that we could place the sensor on, and then fasten it using screws in the corner. </p>
+<img src="img7.png" alt="CAD" width="700" height="300">
+      
+        <script>team_name = "bruinvengers"</script>
+        <script type="module" src="communication.js"></script>
+    </div>
+</body>
+</html>
