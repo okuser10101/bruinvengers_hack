@@ -38,5 +38,4 @@ Picture of team logo
 
 ### Issued Encountered:
 
-  -[...]
-  -[...]
+  -Integrating .js to automatically update website. Fixed by connecting to another secure WiFi network and not a faulty one.
